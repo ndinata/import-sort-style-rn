@@ -1,0 +1,24 @@
+{
+  "name": "import-sort-style-rn",
+  "version": "1.0.0",
+  "description": "Sensible import order for React Native projects.",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nictar/import-sort-order-rn.git"
+  },
+  "keywords": [
+    "import-sort",
+    "react-native"
+  ],
+  "author": "Nico Dinata <ncdnt@icloud.com>",
+  "license": "ISC",
+  "homepage": "https://github.com/nictar/import-sort-order-rn",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.18.2",
+    "prettier": "^1.19.1"
+  }
+}
