@@ -2,21 +2,47 @@
 
 Sensible [import sorting](https://github.com/renke/import-sort/) style for React Native projects.
 
-## Installation
+## Usage
+
+### Installation
 
 ```
 yarn add --dev import-sort-cli import-sort-style-rn
 ```
 
-## Setup
+### Setup
 
 Add the following to your `package.json`:
 
 ```json
 "importSort": {
-  ".js, .jsx, .ts, .tsx": {
+  ".js, .jsx": {
+    "parser": "babylon",
     "style": "rn"
   }
+}
+```
+
+### Typescript
+
+You can use a different parser for Typescript files. More info [here](https://github.com/renke/import-sort#using-a-different-style-or-parser).
+
+```
+yarn add --dev import-sort-parser-typescript
+```
+
+Add this to your `package.json`:
+
+```diff
+"importSort": {
+  ".js, .jsx": {
+    "parser": "babylon",
+    "style": "rn"
+  },
++ ".ts, .tsx": {
++   "parser": "typescript",
++   "style": "rn"
++ }
 }
 ```
 
