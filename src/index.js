@@ -72,22 +72,18 @@ function style(api, file) {
     { separator: true },
 
     // import ... from '../projectFoo' (non-resource)
+    // import ... from './projectFoo' (non-resource)
+    // import image from '**/foo.png'
     {
       match: and(isExternalModule, not(isResourceModule)),
       sort: [dotSegmentCount, moduleName(naturally)],
       sortNamedMembers: alias(unicode),
     },
-    { separator: true },
-
-    // import ... from './projectFoo' (non-resource)
     {
       match: and(isInternalModule, not(isResourceModule)),
       sort: [dotSegmentCount, moduleName(naturally)],
       sortNamedMembers: alias(unicode),
     },
-    { separator: true },
-
-    // import image from '**/foo.png'
     {
       match: isResourceModule,
       sort: [dotSegmentCount, moduleName(naturally)],
