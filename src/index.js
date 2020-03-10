@@ -13,7 +13,10 @@ function isReactModule(imported) {
 }
 
 function isReactNativeModule(imported) {
-  return imported.moduleName.startsWith('react-native');
+  return (
+    imported.moduleName === 'react-native' ||
+    imported.moduleName.startsWith('react-native/')
+  );
 }
 
 function isInternalModule(imported) {
