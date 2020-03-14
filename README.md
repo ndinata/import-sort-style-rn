@@ -64,12 +64,10 @@ import { readFile } from 'fs';
 import axios from 'axios';
 
 // "External" project modules ("../")
-import Divider from '../components/Divider';
-
 // "Internal" project modules ("./")
-import Bubble from './Bubble';
-
 // Resource files (.png, .jpg, .jpeg, .svg)
+import Divider from '../components/Divider';
+import Bubble from './Bubble';
 import Logo from '../assets/logo.png';
 
 ```
