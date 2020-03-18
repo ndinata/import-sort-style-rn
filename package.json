@@ -1,6 +1,6 @@
 {
   "name": "import-sort-style-rn",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Sensible import order for React Native projects.",
   "main": "src/index.js",
   "repository": {
