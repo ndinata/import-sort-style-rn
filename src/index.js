@@ -44,29 +44,22 @@ function style(api, file) {
   } = api;
   return [
     // import 'foo'
-    { match: and(hasNoMember, isAbsoluteModule) },
-    { separator: true },
-
     // import './foo'
+    { match: and(hasNoMember, isAbsoluteModule) },
     { match: and(hasNoMember, isRelativeModule) },
     { separator: true },
 
     // import React from 'react'
-    // import { View, ... } from 'react-native'
-    // import type { ViewStyleProp, ... } from 'react-native/**'
+    // import ... from 'react-native/**'
+    // import ... from 'fs' (Node modules)
+    // import ... from 'foo'
     { match: isReactModule, sortNamedMembers: alias(unicode) },
     { match: isReactNativeModule, sortNamedMembers: alias(unicode) },
-    { separator: true },
-
-    // import ... from 'fs' (Node modules)
     {
       match: isNodeModule,
       sort: moduleName(naturally),
       sortNamedMembers: alias(unicode),
     },
-    { separator: true },
-
-    // import ... from 'foo'
     {
       match: isInstalledModule(file),
       sort: moduleName(unicode),

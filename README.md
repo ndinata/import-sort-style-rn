@@ -54,13 +54,11 @@ import 'c';
 import 'a';
 
 // React (Native) modules
+// Node.js modules
+// Installed modules
 import React from 'react';
 import { Text, ... } from 'react-native';
-
-// Node.js modules
 import { readFile } from 'fs';
-
-// Installed modules
 import axios from 'axios';
 
 // "External" project modules ("../")
