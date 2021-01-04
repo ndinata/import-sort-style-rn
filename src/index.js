@@ -1,13 +1,3 @@
-function isResourceModule(imported) {
-  const { moduleName } = imported;
-  return (
-    moduleName.endsWith('.png') ||
-    moduleName.endsWith('.svg') ||
-    moduleName.endsWith('.jpg') ||
-    moduleName.endsWith('.jpeg')
-  );
-}
-
 function isReactModule(imported) {
   return imported.moduleName === 'react';
 }
@@ -66,9 +56,8 @@ function style(api, file) {
     { separator: true },
 
     // import ... from 'foo' (first-party module)
-    // import ... from '../projectFoo' (non-resource)
-    // import ... from './projectFoo' (non-resource)
-    // import image from '**/foo.png'
+    // import ... from '../**/projectFoo'
+    // import ... from './**/projectFoo'
     {
       match: and(not(isInstalledModule(file)), isAbsoluteModule),
       sort: moduleName(unicode),
@@ -81,11 +70,6 @@ function style(api, file) {
     },
     {
       match: isInternalModule,
-      sort: [dotSegmentCount, moduleName(naturally)],
-      sortNamedMembers: alias(unicode),
-    },
-    {
-      match: isResourceModule,
       sort: [dotSegmentCount, moduleName(naturally)],
       sortNamedMembers: alias(unicode),
     },
