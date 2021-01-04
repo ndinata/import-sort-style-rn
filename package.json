@@ -3,6 +3,7 @@
   "version": "1.1.5",
   "description": "Sensible import order for React Native projects.",
   "main": "src/index.js",
+  "files": ["src"],
   "repository": {
     "type": "git",
     "url": "https://github.com/nictar/import-sort-order-rn.git"
