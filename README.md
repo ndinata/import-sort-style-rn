@@ -50,24 +50,22 @@ Add this to your `package.json`:
 
 ```javascript
 // Modules with side effects (not sorted internally because order may matter)
-import 'c';
-import 'a';
-
 // React (Native) modules
 // Node.js modules
 // Installed modules
+import 'c';
+import 'a';
 import React from 'react';
 import { Text, ... } from 'react-native';
 import { readFile } from 'fs';
 import axios from 'axios';
 
+// Absolute project modules
 // "External" project modules ("../")
 // "Internal" project modules ("./")
-// Resource files (.png, .jpg, .jpeg, .svg)
+import { padding } from 'theme';
 import Divider from '../components/Divider';
 import Bubble from './Bubble';
-import Logo from '../assets/logo.png';
-
 ```
 
 ### References
