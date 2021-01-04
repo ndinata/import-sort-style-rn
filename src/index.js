@@ -45,13 +45,12 @@ function style(api, file) {
   return [
     // import 'foo'
     // import './foo'
-    { match: and(hasNoMember, isAbsoluteModule) },
-    { match: and(hasNoMember, isRelativeModule) },
-
     // import React from 'react'
     // import ... from 'react-native/**'
     // import ... from 'fs' (Node modules)
-    // import ... from 'foo'
+    // import ... from 'foo' (installed/third-party dependency)
+    { match: and(hasNoMember, isAbsoluteModule) },
+    { match: and(hasNoMember, isRelativeModule) },
     { match: isReactModule, sortNamedMembers: alias(unicode) },
     { match: isReactNativeModule, sortNamedMembers: alias(unicode) },
     {
@@ -66,16 +65,22 @@ function style(api, file) {
     },
     { separator: true },
 
+    // import ... from 'foo' (first-party module)
     // import ... from '../projectFoo' (non-resource)
     // import ... from './projectFoo' (non-resource)
     // import image from '**/foo.png'
     {
-      match: and(isExternalModule, not(isResourceModule)),
+      match: and(not(isInstalledModule(file)), isAbsoluteModule),
+      sort: moduleName(unicode),
+      sortNamedMembers: alias(unicode),
+    },
+    {
+      match: isExternalModule,
       sort: [dotSegmentCount, moduleName(naturally)],
       sortNamedMembers: alias(unicode),
     },
     {
-      match: and(isInternalModule, not(isResourceModule)),
+      match: isInternalModule,
       sort: [dotSegmentCount, moduleName(naturally)],
       sortNamedMembers: alias(unicode),
     },
