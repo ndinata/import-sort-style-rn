@@ -11,7 +11,7 @@
     "import-sort",
     "react-native"
   ],
-  "author": "Nico Dinata <ncdnt@icloud.com>",
+  "author": "Nico Dinata <nicodnt@icloud.com>",
   "license": "ISC",
   "homepage": "https://github.com/nictar/import-sort-order-rn",
   "devDependencies": {
