@@ -47,7 +47,6 @@ function style(api, file) {
     // import './foo'
     { match: and(hasNoMember, isAbsoluteModule) },
     { match: and(hasNoMember, isRelativeModule) },
-    { separator: true },
 
     // import React from 'react'
     // import ... from 'react-native/**'
