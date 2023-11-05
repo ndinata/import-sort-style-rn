@@ -1,3 +1,7 @@
+> [!WARNING]
+> This package has been deprecated in favour of https://github.com/IanVS/prettier-plugin-sort-imports.
+> To achieve a sorting result with that package that is similar-ish to this one, you can use [this](https://github.com/ndinata/react-native-template-opinionated/blob/main/template/.prettierrc.json) as reference.
+
 # import-sort-style-rn
 
 Sensible [import sorting](https://github.com/renke/import-sort/) style for React Native projects.
